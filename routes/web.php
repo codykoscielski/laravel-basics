@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+//Import the app controller
+use App\Http\Controllers\ExampleController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,12 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return '<h1>Home Page</h1><a href="/about">View about</a>';
-});
+Route::get('/', [ExampleController::class, "homepage"]);
 
 //Basics of routes
-Route::get('/about', function() {
-    //We would not do a view like this in a real project
-    return '<h1>About page</h1><a href="/">Back to home</a>';
-});
+Route::get('/about', [ExampleController::class, "aboutpage"]);
